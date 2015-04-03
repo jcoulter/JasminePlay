@@ -1,6 +1,5 @@
 function hasGap(d1, d2) {
     return monthsBetween(d1, d2) > 0;
-
 };
 
 function monthsBetween(d1, d2) {
@@ -16,5 +15,17 @@ function sortDates(dates) {
         return new Date(b) - new Date(a);
     });
 };
+
+// add section
+
+// check for date
+
+// sort
+    // index all fields properly.
+
+// check for gaps
+
+// handle gaps
+
 
 
