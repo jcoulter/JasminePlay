@@ -1,4 +1,4 @@
-hasGap = function (d1, d2) {
+function hasGap(d1, d2) {
     return monthsBetween(d1, d2) > 0;
 
 };
