@@ -16,76 +16,62 @@
 </head>
 
 <body>
-<h2><a href="#" id="addScnt">Add Another Input Box</a></h2>
 
-<div id="p_scents">
-    <p>
-        <label for="p_scnts"><input type="text" id="p_scnt" size="20" name="p_scnt" value="" placeholder="Input Value"/></label>
-    </p>
-</div>
-<!--<body>-->
-<!--<h2><a href="#" id="add">Add History</a></h2>-->
 
-<!--<div id="history_list">-->
-<!--<div id="history">-->
-<!--<p>-->
-<!--<label for="beginDate"><input type="text" id="beginDate" size="20" name="beginDate" value=""-->
-<!--placeholder="Begin Date"/></label>-->
-<!--<label for="endDate"><input type="text" id="endDate" size="20" name="endDate" value=""-->
-<!--placeholder="End Date"/></label>-->
-<!--</p>-->
-<!--</div>-->
+<fieldset id="buildyourform">
 
-<!--</div>-->
+    <legend>Build your own form!</legend>
+</fieldset>
+<input type="button" value="Preview form" class="add" id="preview" />
+<input type="button" value="Add a field" class="add" id="add" />
+
+
+
 
 
 <script type="text/javascript">
-//    function whatever() {
-        $(function () {
-            var scntDiv = $('#p_scents');
-            var i = $('#p_scents p').size() + 1;
-
-            $('#addScnt').on('click', function () {
-                $('<p><label for="p_scnts"><input type="text" id="p_scnt" size="20" name="p_scnt_' + i + '" value="" placeholder="Input Value" /></label> <a href="#" id="remScnt">Remove</a></p>').appendTo(scntDiv);
-                i++;
-                return false;
+    $(document).ready(function() {
+        $("#add").click(function() {
+            var intId = $("#buildyourform div").length + 1;
+            var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
+            var fName = $("<input type=\"text\" class=\"fieldname\" />");
+            var fType = $("<select class=\"fieldtype\"><option value=\"checkbox\">Checked</option><option value=\"textbox\">Text</option><option value=\"textarea\">Paragraph</option></select>");
+            var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
+            removeButton.click(function() {
+                $(this).parent().remove();
             });
-
-            $('#remScnt').on('click', function () {
-                alert("in remove");
-                if (i > 2) {
-                    alert(this);
-                    alert(this.parents('p'));
-                    $(this).parents('p').remove();
-                    i--;
-                }
-                return false;
-            });
-
+            fieldWrapper.append(fName);
+            fieldWrapper.append(fType);
+            fieldWrapper.append(removeButton);
+            $("#buildyourform").append(fieldWrapper);
         });
-//    }
-//    ;
+        $("#preview").click(function() {
+            $("#yourform").remove();
+            var fieldSet = $("<fieldset id=\"yourform\"><legend>Your Form</legend></fieldset>");
+            $("#buildyourform div").each(function() {
+                var id = "input" + $(this).attr("id").replace("field","");
+                var label = $("<label for=\"" + id + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
+                var input;
+                switch ($(this).find("select.fieldtype").first().val()) {
+                    case "checkbox":
+                        input = $("<input type=\"checkbox\" id=\"" + id + "\" name=\"" + id + "\" />");
+                        break;
+                    case "textbox":
+                        input = $("<input type=\"text\" id=\"" + id + "\" name=\"" + id + "\" />");
+                        break;
+                    case "textarea":
+                        input = $("<textarea id=\"" + id + "\" name=\"" + id + "\" ></textarea>");
+                        break;
+                }
+                fieldSet.append(label);
+                fieldSet.append(input);
+            });
+            $("body").append(fieldSet);
+        });
+    });
+
+
 </script>
 
-<!--<script>-->
-<!--$(function () {-->
-<!--var targetDiv = $('#history_list');-->
-<!--var i = $('#history_list p').size() + 1;-->
-
-<!--$('#add').live('click', function () {-->
-<!--$('<p><label for="p_scnts"><input type="text" id="p_scnt" size="20" name="p_scnt_' + i + '" value="" placeholder="Input Value" /></label> <a href="#" id="remScnt">Remove</a></p>').appendTo(targetDiv);-->
-<!--i++;-->
-<!--return false;-->
-<!--});-->
-
-<!--$('#remScnt').live('click', function () {-->
-<!--if (i > 2) {-->
-<!--$(this).parents('p').remove();-->
-<!--i--;-->
-<!--}-->
-<!--return false;-->
-<!--});-->
-<!--});-->
-<!--</script>-->
 </body>
 </html>
