@@ -56,6 +56,10 @@
                 return result;
             });
             $.each(sorted, function (idx, itm) {
+                alert("id = " + $(itm).attr("id"));
+                // renumber id
+                $(itm).attr("id", this.id.replace(/\d/, idx));
+                //todo: renumber id of children
                 container.append(itm);
             })
         });
