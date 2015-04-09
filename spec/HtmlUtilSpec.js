@@ -21,7 +21,17 @@ describe("HtmlUtil", function () {
         expect(actual.find('#startDate4lbl')).toExist();
         expect(actual.find('#startDate4lbl')).toHaveAttr('for', 'startDate4');
         expect(actual.find('#startDate4')).toExist();
-        expect(actual.find('*').length).toEqual(3);
+        expect(actual.find('*').length).toBe(3);
+    });
+
+    it("should append elements to list - and update their ids", function (){
+        setFixtures(sandbox({id: 'MyId'})) ;
+        var toAppendStr = '<div id="appended1"/><div id="appended2"/>'
+        appendTo($(toAppendStr), "MyId");
+        var appended = $.makeArray($("#MyId").find('*'));
+        expect(appended.length).toBe(2);
+        expect($(appended[0]).attr('id')).toBe("appended0");
+        expect($(appended[1]).attr('id')).toBe("appended1");
     });
 
 });

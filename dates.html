@@ -44,18 +44,7 @@
             $("#buildyourform").append(fieldWrapper);
         });
         $("#sort").click(function () {
-            var container = $("#buildyourform");
-            var divList = $(".fieldwrapper");
-            var sorted = divList.sort(function (a, b) {
-                var a_startDate = $(a).children("[name=\"startDate\"]")[0].value;
-                var b_startDate = $(b).children("[name=\"startDate\"]")[0].value;
-                var result = a_startDate - b_startDate;
-                return result;
-            });
-            $.each(sorted, function (idx, itm) {
-                changeIndexTo($(itm), idx)
-                container.append(itm);
-            })
+            sortDivsIn("buildyourform", "fieldwrapper");
         });
     });
 
