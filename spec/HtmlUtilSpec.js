@@ -14,11 +14,12 @@ describe("HtmlUtil", function () {
 
     it("should change the index portion of children element's ids", function () {
         var elem = $('<div id="MyId3"><p>' +
-            '<label id="startDate3lbl">My Label</label>' +
+            '<label id="startDate3lbl" for="startDate3">My Label</label>' +
             '<input type="text" id="startDate3"/></p></div>');
         var actual = changeIndexTo(elem, 4);
         expect(actual).toHaveAttr('id', 'MyId4');
         expect(actual.find('#startDate4lbl')).toExist();
+        expect(actual.find('#startDate4lbl')).toHaveAttr('for', 'startDate4');
         expect(actual.find('#startDate4')).toExist();
         expect(actual.find('*').length).toEqual(3);
     });
