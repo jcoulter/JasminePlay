@@ -9,6 +9,7 @@
 
     <!-- include source files here... -->
     <script src="src/DateUtil.js"></script>
+    <script src="src/HtmlUtil.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
 
@@ -28,7 +29,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $("#add").click(function () {
-            var intId = $("#buildyourform div").length + 1;
+            var intId = $("#buildyourform div").length;
             var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
             var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
             removeButton.click(function () {
@@ -56,10 +57,7 @@
                 return result;
             });
             $.each(sorted, function (idx, itm) {
-                alert("id = " + $(itm).attr("id"));
-                // renumber id
-                $(itm).attr("id", this.id.replace(/\d/, idx));
-                //todo: renumber id of children
+                changeIdIndexTo($(itm), idx)
                 container.append(itm);
             })
         });
