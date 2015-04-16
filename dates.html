@@ -11,40 +11,295 @@
     <script src="src/HtmlUtil.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
+    <script src="lib/jquery.mtz.monthpicker.js"></script>
+    <!--<script src="lib/jquery.metadata.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="src/applicantcare.css"/>
+    <link rel="stylesheet" type="text/css" href="src/bootstrap.css"/>
+
 </head>
 <body>
 
-<div id="buildyourform">
-    <legend>Build your own form!</legend>
+
+<div id="employerAccordion">
+
+
+
+
+
+<!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+        <!--<label for="StageFormEmp0Street" class="control-label required">Street</label>-->
+
+        <!--<div>-->
+            <!--<input name="data[StageForm][emp_0_street]" type="text" placeholder="Street"-->
+                   <!--class="required form-control" id="StageFormEmp0Street"></div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="row">-->
+    <!--<div class="col-md-6">-->
+        <!--<label for="StageFormEmp0City" class="control-label required">City</label>-->
+
+        <!--<div>-->
+            <!--<input name="data[StageForm][emp_0_city]" type="text" placeholder="City"-->
+                   <!--class="required form-control" id="StageFormEmp0City"></div>-->
+    <!--</div>-->
+
+    <!--<div class="col-md-2">-->
+        <!--<label for="StageFormEmp0State" class="control-label required">State/Province</label>-->
+
+        <!--<div>-->
+            <!--<select name="data[StageForm][emp_0_state]" class="required form-control"-->
+                    <!--id="StageFormEmp0State">-->
+                <!--<option value=""></option>-->
+                <!--<optgroup label="USA">-->
+                    <!--<option value="AL">AL</option>-->
+                    <!--<option value="AK">AK</option>-->
+                    <!--<option value="AZ">AZ</option>-->
+                    <!--<option value="AR">AR</option>-->
+                    <!--<option value="CA">CA</option>-->
+                    <!--<option value="CO">CO</option>-->
+                    <!--<option value="CT">CT</option>-->
+                    <!--<option value="DE">DE</option>-->
+                    <!--<option value="DC">DC</option>-->
+                    <!--<option value="FL">FL</option>-->
+                    <!--<option value="GA">GA</option>-->
+                    <!--<option value="HI">HI</option>-->
+                    <!--<option value="ID">ID</option>-->
+                    <!--<option value="IL">IL</option>-->
+                    <!--<option value="IN">IN</option>-->
+                    <!--<option value="IA">IA</option>-->
+                    <!--<option value="KS">KS</option>-->
+                    <!--<option value="KY">KY</option>-->
+                    <!--<option value="LA">LA</option>-->
+                    <!--<option value="ME">ME</option>-->
+                    <!--<option value="MD">MD</option>-->
+                    <!--<option value="MA">MA</option>-->
+                    <!--<option value="MI">MI</option>-->
+                    <!--<option value="MN">MN</option>-->
+                    <!--<option value="MS">MS</option>-->
+                    <!--<option value="MO">MO</option>-->
+                    <!--<option value="MT">MT</option>-->
+                    <!--<option value="NE">NE</option>-->
+                    <!--<option value="NV">NV</option>-->
+                    <!--<option value="NH">NH</option>-->
+                    <!--<option value="NJ">NJ</option>-->
+                    <!--<option value="NM">NM</option>-->
+                    <!--<option value="NY">NY</option>-->
+                    <!--<option value="NC">NC</option>-->
+                    <!--<option value="ND">ND</option>-->
+                    <!--<option value="OH">OH</option>-->
+                    <!--<option value="OK">OK</option>-->
+                    <!--<option value="OR">OR</option>-->
+                    <!--<option value="PA">PA</option>-->
+                    <!--<option value="RI">RI</option>-->
+                    <!--<option value="SC">SC</option>-->
+                    <!--<option value="SD">SD</option>-->
+                    <!--<option value="TN">TN</option>-->
+                    <!--<option value="TX">TX</option>-->
+                    <!--<option value="UT">UT</option>-->
+                    <!--<option value="VT">VT</option>-->
+                    <!--<option value="VA">VA</option>-->
+                    <!--<option value="WA">WA</option>-->
+                    <!--<option value="WV">WV</option>-->
+                    <!--<option value="WI">WI</option>-->
+                    <!--<option value="WY">WY</option>-->
+                <!--</optgroup>-->
+                <!--<optgroup label="Canada">-->
+                    <!--<option value="AB">AB</option>-->
+                    <!--<option value="BC">BC</option>-->
+                    <!--<option value="MB">MB</option>-->
+                    <!--<option value="NB">NB</option>-->
+                    <!--<option value="NL">NL</option>-->
+                    <!--<option value="NT">NT</option>-->
+                    <!--<option value="NS">NS</option>-->
+                    <!--<option value="NU">NU</option>-->
+                    <!--<option value="ON">ON</option>-->
+                    <!--<option value="PE">PE</option>-->
+                    <!--<option value="QC">QC</option>-->
+                    <!--<option value="SK">SK</option>-->
+                    <!--<option value="YT">YT</option>-->
+                <!--</optgroup>-->
+            <!--</select></div>-->
+    <!--</div>-->
+
+    <!--<div class="col-md-2">-->
+        <!--<label for="StageFormEmp0Zip" class="control-label required">Zip/Postal</label>-->
+
+        <!--<div>-->
+            <!--<input name="data[StageForm][emp_0_zip]" type="text" placeholder="Zip"-->
+                   <!--class="required zipcodeUSCan form-control" id="StageFormEmp0Zip"></div>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash; deal with optional phone number field &ndash;&gt;-->
+<!--<div class="row">-->
+    <!--<div class="col-md-4">-->
+        <!--<label for="StageFormEmp0Held" class="control-label required">Position held</label>-->
+
+        <!--<div>-->
+            <!--<input name="data[StageForm][emp_0_held]" type="text" placeholder="Position"-->
+                   <!--class="required form-control" id="StageFormEmp0Held"></div>-->
+    <!--</div>-->
+
+    <!--<div class="col-md-4">-->
+        <!--<label for="StageFormEmp0Contact" class="control-label required">Contact person</label>-->
+
+        <!--<div>-->
+            <!--<input name="data[StageForm][emp_0_contact]" type="text" placeholder="Contact"-->
+                   <!--class="required form-control" id="StageFormEmp0Contact"></div>-->
+    <!--</div>-->
+
+    <!--<div class="col-md-4">-->
+        <!--<label for="StageFormEmp0Salary" class="control-label required">Salary/Wage</label>-->
+
+        <!--<div>-->
+            <!--<input name="data[StageForm][emp_0_salary]" type="text" placeholder="Salary"-->
+                   <!--class="required form-control" id="StageFormEmp0Salary"></div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+        <!--<label class="control-label">Were you subject to the FMCSR's while employed?</label>-->
+
+        <!--<div class="bootstrap-radio-inline">-->
+            <!--<input type="hidden" name="data[StageForm][emp_0_fmcsr]" id="StageFormEmp0Fmcsr_" value=""-->
+                   <!--class="form-control"><label for="StageFormEmp0Fmcsr1"-->
+                                               <!--class="radio-inline required"><input type="radio"-->
+                                                                                    <!--name="data[StageForm][emp_0_fmcsr]"-->
+                                                                                    <!--id="StageFormEmp0Fmcsr1"-->
+                                                                                    <!--class="required"-->
+                                                                                    <!--value="1">Yes</label><label-->
+                <!--for="StageFormEmp0Fmcsr2" class="radio-inline required"><input type="radio"-->
+                                                                               <!--name="data[StageForm][emp_0_fmcsr]"-->
+                                                                               <!--id="StageFormEmp0Fmcsr2"-->
+                                                                               <!--class="required" value="2">No</label>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+        <!--<label class="control-label">Was your job designated as a safety-sensitive function in any-->
+            <!--DOT-regulated mode subject to the drug and alcohol testing requirements of CFR 40?</label>-->
+
+        <!--<div class="bootstrap-radio-inline">-->
+            <!--<input type="hidden" name="data[StageForm][emp_0_cfr]" id="StageFormEmp0Cfr_" value=""-->
+                   <!--class="form-control"><label for="StageFormEmp0Cfr1" class="radio-inline required"><input-->
+                <!--type="radio" name="data[StageForm][emp_0_cfr]" id="StageFormEmp0Cfr1" class="required"-->
+                <!--value="1">Yes</label><label for="StageFormEmp0Cfr2" class="radio-inline required"><input-->
+                <!--type="radio" name="data[StageForm][emp_0_cfr]" id="StageFormEmp0Cfr2" class="required"-->
+                <!--value="2">No</label></div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+        <!--<label for="StageFormEmp0Reason" class="control-label required">Reason for leaving</label>-->
+        <!--<input name="data[StageForm][emp_0_reason]" type="text" class="required form-control"-->
+               <!--id="StageFormEmp0Reason"></div>-->
+<!--</div>-->
+
+<!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+
+        <!--<label for="StageFormEmp0Gap" class="control-label required">Please explain any gap after leaving-->
+            <!--this employer. (If not applicable, enter N/A)</label>-->
+        <!--<input name="data[StageForm][emp_0_gap]" type="text" class="required form-control"-->
+               <!--id="StageFormEmp0Gap">-->
+
+    <!--</div>-->
+
+
+<!--</div>-->
+<!--</div>-->
+
 </div>
 
-<input type="button" value="Add a field" class="add" id="add"/>
+
+<input type="button" value="Add Employer" class="add" id="add"/>
 <input type="button" value="Sort" class="sort" id="sort"/>
 
 
+<script type="text" id="employerTemplate">
+    <h3>Section 1</h3>
+
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-6">
+                <label for="StageFormEmp0Name" class="control-label required">Employer Name</label>
+
+                <div>
+                    <input name="data[StageForm][emp_0_name]" type="text" placeholder="Employer Name"
+                           class="required group-name form-control" id="StageFormEmp0Name"></div>
+            </div>
+            <div class="col-md-3">
+                <label for="StageFormEmp0From" class="control-label required">From</label>
+
+                <div>
+                    <input name="data[StageForm][emp_0_from]" type="text" placeholder="From"
+                           class="monthpicker required strictYearMonth form-control mtz-monthpicker-widgetcontainer"
+                           id="StageFormEmp0From"></div>
+            </div>
+            <div class="col-md-3">
+                <label for="StageFormEmp0To" class="control-label required">To</label>
+
+                <div>
+                    <input name="data[StageForm][emp_0_to]" type="text" placeholder="To"
+                           class="monthpicker required strictYearMonth form-control mtz-monthpicker-widgetcontainer"
+                           id="StageFormEmp0To"></div>
+            </div>
+        </div>
+        </div>
+</script>
+
 <script type="text/javascript">
+
     $(document).ready(function () {
+        var currentYear = new Date().getFullYear();
+
         $("#add").click(function () {
-            var intId = $("#buildyourform div").length;
-            var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
+            var employerSection = document.createElement('employerSection');
+            employerSection.innerHTML = document.getElementById('employerTemplate').innerHTML;
+//            document.getElementById('targetElement').appendChild(div);
+            
+
+            var intId = $("#employerAccordion H3").length;
+
+            alert(intId);
+//            var employerSection = $("#employerTemplate").innerHTML;
+            alert(employerSection);
             var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
             removeButton.click(function () {
                 $(this).parent().remove();
             });
 
-            var startDateId = "startDate" + intId
-            fieldWrapper.append($("<label for=\"" + startDateId + "\">Start Date:</label>"));
-            fieldWrapper.append($("<input type=\"text\" class=\"fieldname\" name=\"startDate\" id=\"" + startDateId + "\" />"));
+//            var startDateId = "startDate" + intId
+//            employerSection.append($("<label for=\"" + startDateId + "\">Start Date:</label>"));
+//            employerSection.append($("<input type=\"text\" class=\"monthpicker fieldname\" name=\"startDate\" id=\"" + startDateId + "\" />"));
+//
+//            var endDateId = "endDate" + intId
+//            employerSection.append($("<label for=\"" + endDateId + "\">End Date:</label>"));
+//            employerSection.append($("<input type=\"text\" class=\"fieldname\" name=\"endDate\" id=\"" + endDateId + "\" />"));
+//
+//            employerSection.append(removeButton);
 
-            var endDateId = "endDate" + intId
-            fieldWrapper.append($("<label for=\"" + endDateId + "\">End Date:</label>"));
-            fieldWrapper.append($("<input type=\"text\" class=\"fieldname\" name=\"endDate\" id=\"" + endDateId + "\" />"));
-
-            fieldWrapper.append(removeButton);
-            $("#buildyourform").append(fieldWrapper);
+            //save state
+            var state = $("#employerAccordion").accordion( "option", "active" );
+            //add accordion item, destroy then re-create
+            $("#employerAccordion").append(employerSection.innerHTML).accordion("destroy").accordion();
+            //set state
+            $("#employerAccordion").accordion( "option", "active", state );
+            $(".monthpicker").monthpicker({pattern:'yyyy-mm', startYear:currentYear - 100, finalYear:currentYear});
         });
         $("#sort").click(function () {
             sortDivsIn("buildyourform", "fieldwrapper");
+        });
+        $(function () {
+            $("#employerAccordion").accordion();
         });
     });
 
