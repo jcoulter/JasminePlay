@@ -224,6 +224,7 @@
 
 
 <script type="text" id="employerTemplate">
+    <div>
     <h3>Section {index + 1}</h3>
 
     <div class="panel-body">
@@ -254,6 +255,7 @@
             </div>
         </div>
         </div>
+    </div>
 </script>
 
 <script type="text/javascript">
@@ -262,7 +264,7 @@
         var currentYear = new Date().getFullYear();
 
         $("#add").click(function () {
-            var intId = $("#employerAccordion H3").length;
+            var intId = $("#employerAccordion h3").length;
 
             var employerSection = document.createElement('employerSection');
             employerSection.innerHTML =
@@ -295,16 +297,15 @@
             //save state
             var state = $("#employerAccordion").accordion( "option", "active" );
             //add accordion item, destroy then re-create
-            $("#employerAccordion").append(employerSection.innerHTML).accordion("destroy").accordion();
+            $("#employerAccordion").append(employerSection.innerHTML).accordion("destroy").accordion({header: "> div > h3", active: state});
             //set state
-            $("#employerAccordion").accordion( "option", "active", state );
             $(".monthpicker").monthpicker({pattern:'yyyy-mm', startYear:currentYear - 100, finalYear:currentYear});
         });
         $("#sort").click(function () {
             sortDivsIn("buildyourform", "fieldwrapper");
         });
         $(function () {
-            $("#employerAccordion").accordion();
+            $("#employerAccordion").accordion({header: "> div > h3"});
         });
     });
 
