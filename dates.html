@@ -224,33 +224,33 @@
 
 
 <script type="text" id="employerTemplate">
-    <h3>Section 1</h3>
+    <h3>Section {index + 1}</h3>
 
     <div class="panel-body">
 
         <div class="row">
             <div class="col-md-6">
-                <label for="StageFormEmp0Name" class="control-label required">Employer Name</label>
+                <label for="StageFormEmp{index}Name" class="control-label required">Employer Name</label>
 
                 <div>
-                    <input name="data[StageForm][emp_0_name]" type="text" placeholder="Employer Name"
-                           class="required group-name form-control" id="StageFormEmp0Name"></div>
+                    <input name="data[StageForm][emp_{index}_name]" type="text" placeholder="Employer Name"
+                           class="required group-name form-control" id="StageFormEmp{index}Name"></div>
             </div>
             <div class="col-md-3">
-                <label for="StageFormEmp0From" class="control-label required">From</label>
+                <label for="StageFormEmp{index}From" class="control-label required">From</label>
 
                 <div>
-                    <input name="data[StageForm][emp_0_from]" type="text" placeholder="From"
+                    <input name="data[StageForm][emp_{index}_from]" type="text" placeholder="From"
                            class="monthpicker required strictYearMonth form-control mtz-monthpicker-widgetcontainer"
-                           id="StageFormEmp0From"></div>
+                           id="StageFormEmp{index}From"></div>
             </div>
             <div class="col-md-3">
-                <label for="StageFormEmp0To" class="control-label required">To</label>
+                <label for="StageFormEmp{index}To" class="control-label required">To</label>
 
                 <div>
-                    <input name="data[StageForm][emp_0_to]" type="text" placeholder="To"
+                    <input name="data[StageForm][emp_{index}_to]" type="text" placeholder="To"
                            class="monthpicker required strictYearMonth form-control mtz-monthpicker-widgetcontainer"
-                           id="StageFormEmp0To"></div>
+                           id="StageFormEmp{index}To"></div>
             </div>
         </div>
         </div>
@@ -262,16 +262,21 @@
         var currentYear = new Date().getFullYear();
 
         $("#add").click(function () {
-            var employerSection = document.createElement('employerSection');
-            employerSection.innerHTML = document.getElementById('employerTemplate').innerHTML;
-//            document.getElementById('targetElement').appendChild(div);
-            
-
             var intId = $("#employerAccordion H3").length;
 
+            var employerSection = document.createElement('employerSection');
+            employerSection.innerHTML =
+                    document.getElementById('employerTemplate').innerHTML.
+                            replace(/\{index\}/g, intId).
+                            replace(/\{index \+ 1\}/g, (intId + 1));
+
+
+
             alert(intId);
-//            var employerSection = $("#employerTemplate").innerHTML;
-            alert(employerSection);
+
+
+
+            alert(employerSection.innerHtml);
             var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
             removeButton.click(function () {
                 $(this).parent().remove();
